@@ -1,0 +1,51 @@
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" style="width: 1200px; height: auto; margin: auto; margin-top:8%;">
+
+<rect id="test" x="-50" y="-50" width="100" height="100" stroke="red" stroke-width="3" fill="none" />
+<rect id="test2" x="-50" y="-50" width="100" height="100" fill="#666"/>
+
+<script type="text/ecmascript" xlink:href="../dist/js/script.js" />
+<script type="application/ecmascript"> <![CDATA[
+
+const test = new Obj(document.getElementById('test'), { translate: [1000, 100] });
+const test2 = new Obj(document.getElementById('test2'), { translate: [200, 200], scale: 1 });
+
+const slide1 = new Slide();
+slide1.play = () => {
+    step({
+        objects: [{
+            object: test,
+            transform: { translate: [600, 300], rotate: 45 },
+        }],
+    }).then(() => {
+        step({
+            objects: [{
+                object: test2,
+                transform: { translate: [800, 200], rotate: 720 },
+            }],
+        }).then(() => {
+            next();
+        });
+    });
+};
+
+const slide2 = new Slide();
+slide2.play = () => {
+    step({
+        objects: [{
+            object: test,
+            transform: { translate: [1000, 300], rotate: 360 },
+            attributes: [
+                { name: 'stroke-width', to: 10 },
+            ],
+        }],
+    }).then(() => { next(); });
+};
+
+addSlides(slide1, slide2);
+
+]]></script>
+</svg>
+
+
