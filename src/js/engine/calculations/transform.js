@@ -1,8 +1,11 @@
 import utils from './../../utils';
 
+/* Define most efficient function used to animate transform property, then add it to array of functions for animation */
+
 function calculateTransform(el) {
     const targetTransform = el.transform;
 
+    // check if transform animation is requested
     if (!utils.undef(targetTransform)) {
         let animateFunc;
         let updateFunc;

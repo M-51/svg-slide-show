@@ -1,7 +1,11 @@
 import { playToPause, pauseToPlay, pauseToReload, reloadToPlay } from './buttons';
 
+/* Player starts, stops, resumes or reloads slide show */
+
+// array of all slides
 const slides = [];
-const objectList = [];
+// set of all elements used in animations. Needed for restarting, setting elements to starting positions
+const objectList = new Set();
 let currentSlide = 0;
 let status = 'not started';
 
@@ -11,9 +15,7 @@ function start() {
 }
 
 function reset() {
-    for (let i = 0; i < objectList.length; i += 1) {
-        objectList[i].reset();
-    }
+    objectList.forEach((el) => { el.reset(); });
 }
 
 function resume() {
@@ -60,14 +62,10 @@ function next() {
 }
 
 function addSlides(...slide) {
-    for (let i = 0; i < slide.length; i += 1) {
-        slides.push(slide[i]);
-    }
+    slides.push(...slide);
 }
 function addObjects(object) {
-    if (objectList.indexOf(object) === -1) {
-        objectList.push(object);
-    }
+    objectList.add(object);
 }
 
 document.documentElement.addEventListener('button-click', controlPlayer, false);

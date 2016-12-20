@@ -1,5 +1,7 @@
 import utils from './../../utils';
 
+/* Define function used to animate attributes, then add it to array of functions for animation */
+
 function calculateAttributes(el) {
     const attributes = el.attributes;
     const table = [];
@@ -16,14 +18,20 @@ function calculateAttributes(el) {
             el.object.variables.set(table[i][0], table[i][2]);
         }
     }
-
+    // check if attributes animation is requested
     if (!utils.undef(attributes) && attributes.length !== 0) {
+        // for every attribute
         for (let i = 0; i < attributes.length; i += 1) {
+            // property name
             const name = attributes[i].name;
 
+            // starting value
             const from = utils.undef(attributes[i].from) ? el.object.variables.get(name) : attributes[i].from;
+
+            // throw error if starting value is not defined. Neither in request nor in DOM element
             if (utils.undef(from)) { throw new Error(`No "from" value, for ${name}`); }
 
+            // target value
             const to = attributes[i].to;
 
             table.push([name, from, to]);

@@ -1,12 +1,9 @@
 import settings from '../settings';
 
-/*--------------------------------------------------------------------------
-****************************************************************************
-
-                        Create elements of interface
-
-***************************************************************************
---------------------------------------------------------------------------*/
+/*
+---------------------------CREATE-ELEMENTS-OF-INTERFACE--------------------------
+---------------------------------------------------------------------------------
+*/
 
 // declare variables
 
@@ -54,6 +51,7 @@ css.textContent = '#control > rect {opacity: 0; cursor: pointer;} #control > pat
 
 
 let defs = settings.svg.getElementsByTagName('defs')[0];
+// check if defs element is already declared. If not, add it to DOM
 if (!defs) {
     defs = document.createElement('defs');
     settings.svg.insertBefore(defs, settings.svg.firstChild);
@@ -80,13 +78,11 @@ const event = document.createEvent('Event');
 event.initEvent('button-click', true, true);
 icons.rect.addEventListener('click', () => { settings.svg.dispatchEvent(event); });
 
-/*--------------------------------------------------------------------------
-****************************************************************************
 
-                        interface animations
-
-***************************************************************************
---------------------------------------------------------------------------*/
+/*
+-------------------------------INTERFACE-ANIMATIONS------------------------------
+---------------------------------------------------------------------------------
+*/
 
 // animation - play -> pause
 
