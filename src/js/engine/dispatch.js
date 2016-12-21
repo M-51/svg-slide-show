@@ -3,7 +3,7 @@ import calculate from './calculate';
 /* Split request to threads, and dispatch to "calculate" function */
 
 function dispatch(...threads) {
-    const promise = new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         if (threads.length === 0) {
             // throw error, if request is empty
             reject(Error('Add objects to "step" function'));
@@ -17,7 +17,6 @@ function dispatch(...threads) {
             Promise.all(arr).then(() => { resolve(); });
         }
     });
-    return promise;
 }
 
 // rename element for easier access

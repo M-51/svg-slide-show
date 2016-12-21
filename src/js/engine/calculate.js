@@ -3,6 +3,7 @@ import { addObjects } from '../control/player';
 import calculateTransform from './calculations/transform';
 import calculateAttributes from './calculations/attribute';
 import calculateRemove from './calculations/remove';
+import calculateSet from './calculations/set';
 import utils from '../utils';
 
 /* Specify functions used to animations, and send them to animate function */
@@ -24,8 +25,13 @@ function calculate(el) {
             const calculatedAttributes = calculateAttributes(requestObject);
             if (calculatedAttributes) { arr.push([calculatedAttributes]); }
 
+            // define remove attribute function, if attributes needs to be removed
             const calculatedRemove = calculateRemove(requestObject);
             if (calculatedRemove) { arr.push([calculatedRemove]); }
+
+            // define set attribute function, if attributes needs to be set
+            const calculatedSet = calculateSet(requestObject);
+            if (calculatedSet) { arr.push([calculatedSet]); }
 
             // add objects to objects set in player.js. Needed for reseting
             addObjects(objects[i].object);

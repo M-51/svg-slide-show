@@ -103,8 +103,8 @@ slide3.play = () => {
                 objects: [
                     {
                         object: sunRaysLast,
-                        attributes: [{ name: 'x2', to: 0 }],
-                        remove: { name: 'marker-end', when: 'end' }
+                        attributes: { name: 'x2', to: 0 },
+                        remove: { name: 'marker-end', when: 'start' }
                     }
                 ]
             }
