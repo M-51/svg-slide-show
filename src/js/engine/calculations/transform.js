@@ -14,8 +14,12 @@ function calculateTransform(el) {
 
         const deltaScale = targetTransform.scale - startingTransform.scale;
         const deltaRotate = targetTransform.rotate - startingTransform.rotate;
-        const delta0 = targetTransform.translate[0] - startingTransform.translate[0];
-        const delta1 = targetTransform.translate[1] - startingTransform.translate[1];
+        let delta0;
+        let delta1;
+        if (!utils.undef(targetTransform.translate)) {
+            delta0 = (targetTransform.translate[0]) - startingTransform.translate[0];
+            delta1 = (targetTransform.translate[1]) - startingTransform.translate[1];
+        }
 
         /* -------- transforms without translation -------- */
         if (utils.undef(targetTransform.translate)) {

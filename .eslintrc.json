@@ -4,19 +4,24 @@
         "browser": true
     },
 
+    "globals": {
+        "Obj": true,
+        "Slide": true,
+        "step": true,
+        "addSlides": true,
+        "next": true
+    },
+
     "rules": {
-      "indent": [
-        "error",
-         4
-      ],
-      "max-len": [
-        2,
-        250,
-        4
-      ],
-      "linebreak-style": [
-        "error", 
-        "windows"
-      ]
+        "indent": [
+            "error", 4
+        ],
+        "max-len": [
+            2, 250, 4
+        ],
+        "linebreak-style": [
+            "error", 
+            "windows"
+        ]
     }
 }

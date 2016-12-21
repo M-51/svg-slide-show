@@ -3,7 +3,6 @@ import utils from './../../utils';
 /* Define function used to animate attributes, then add it to array of functions for animation */
 
 function calculateAttributes(el) {
-    const attributes = el.attributes;
     const table = [];
 
     function animateFunc(t) {
@@ -19,7 +18,8 @@ function calculateAttributes(el) {
         }
     }
     // check if attributes animation is requested
-    if (!utils.undef(attributes) && attributes.length !== 0) {
+    if (!utils.undef(el.attributes) && el.attributes.length !== 0) {
+        const attributes = Array.isArray(el.attributes) ? el.attributes : [el.attributes];
         // for every attribute
         for (let i = 0; i < attributes.length; i += 1) {
             // property name

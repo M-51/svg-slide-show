@@ -120,7 +120,7 @@ class Obj {
         this.setMatrix(this.manipulationMatrix);
     }
     scale(s) {
-        const radians = (this.tr.rotate * Math.PI) / 180;
+        const radians = (-this.tr.rotate * Math.PI) / 180;
         const c = Math.sin(radians) * s;
         const a = Math.cos(radians) * s;
 
@@ -144,7 +144,7 @@ class Obj {
         this.setMatrix(this.manipulationMatrix);
     }
     scaleAndTranslate(s, x, y) {
-        const radians = (this.tr.rotate * Math.PI) / 180;
+        const radians = (-this.tr.rotate * Math.PI) / 180;
         const c = Math.sin(radians) * s;
         const a = Math.cos(radians) * s;
 

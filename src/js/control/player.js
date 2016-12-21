@@ -51,13 +51,13 @@ function controlPlayer() {
     }
 }
 
-function next() {
+function next(delay) {
     if (currentSlide + 1 >= slides.length) {
         status = 'finished';
         pauseToReload();
     } else if (status !== 'paused') {
         currentSlide += 1;
-        slides[currentSlide].play();
+        window.setTimeout(() => { slides[currentSlide].play(); }, delay);
     }
 }
 
