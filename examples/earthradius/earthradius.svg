@@ -28,6 +28,8 @@
 	<line id="sun__rays--last" x1="-400" y1="0" x2="-175" y2="0" marker-end="url(#marker-arrow)" stroke-dasharray="5" />
 </g>
 
+<text id="text" x="20" y="50">Panie Janie, tu jest tekst</text>
+
 <script type="text/ecmascript" xlink:href="../../dist/js/script.js" />
 <script type="text/ecmascript" xlink:href="earthradius.js" />
 </svg>
