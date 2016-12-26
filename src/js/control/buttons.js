@@ -89,6 +89,10 @@ icons.rect.addEventListener('click', () => { settings.svg.dispatchEvent(event); 
 function animatePlayToPause() {
     let steps = 1;
 
+    if (!settings.interfaceAnimations) {
+        steps = 10;
+    }
+
     function animate() {
         if (steps <= 10) {
             icons.polygon1.setAttribute('points', `
@@ -114,6 +118,10 @@ function animatePlayToPause() {
 
 function animatePauseToPlay() {
     let steps = 1;
+
+    if (!settings.interfaceAnimations) {
+        steps = 10;
+    }
 
     function animate() {
         if (steps <= 10) {
@@ -141,6 +149,11 @@ function animatePauseToPlay() {
 function animatePauseToReload() {
     let steps = 1;
     let offset = 16;
+
+    if (!settings.interfaceAnimations) {
+        steps = 10;
+        offset = 0;
+    }
 
     function animateArc() {
         if (offset > 0) {
@@ -182,6 +195,11 @@ function animatePauseToReload() {
 function animateReloadToPlay() {
     let steps = 1;
     let offset = 0;
+
+    if (!settings.interfaceAnimations) {
+        steps = 10;
+        offset = 16;
+    }
 
     function animate() {
         if (steps <= 10) {
