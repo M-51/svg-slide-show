@@ -3,7 +3,7 @@ const earthCircle = new Obj(document.querySelector('#earth circle'));
 const sun = new Obj(document.getElementById('sun'), { translate: [-15000, 300], scale: 150 });
 const sunRays = new Obj(document.getElementById('sun__rays'), { translate: [100, 300] });
 const sunRaysLast = new Obj(document.getElementById('sun__rays--last'));
-const text = new Text(document.getElementById('text'));
+const text = new Obj(document.getElementById('text'));
 
 const slide1 = new Slide();
 slide1.play = () => {
@@ -24,7 +24,7 @@ slide1.play = () => {
                 },
                 {
                     object: text,
-                    transform: { translate: [500, 300] }
+                    effects: { effect: 'fadeIn' }
                 }
             ]
         })
@@ -62,6 +62,10 @@ slide2.play = () => {
                 {
                     object: sunRays,
                     transform: { translate: [300, 300] }
+                },
+                {
+                    object: text,
+                    effects: { effect: 'fadeOut' }
                 }
             ]
         })
@@ -109,7 +113,7 @@ slide3.play = () => {
                     {
                         object: sunRaysLast,
                         attributes: { name: 'x2', to: 0 },
-                        remove: { name: 'marker-end', when: 'start' }
+                        remove: { name: 'marker-end', when: 'end' }
                     }
                 ]
             }

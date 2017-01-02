@@ -4,6 +4,7 @@ import calculateTransform from './calculations/transform';
 import calculateAttributes from './calculations/attribute';
 import calculateRemove from './calculations/remove';
 import calculateSet from './calculations/set';
+import calculateEffects from './calculations/effects';
 import utils from '../utils';
 
 /* Specify functions used to animations, and send them to animate function */
@@ -13,6 +14,8 @@ function calculate(el) {
         // declare array of animation functions
         const arr = [];
         const objects = Array.isArray(el.objects) ? el.objects : [el.objects];
+        const speed = utils.undef(el.speed) ? 1 : el.speed;
+        const delay = el.delay || 0;
         // Set function for every object
         for (let i = 0; i < objects.length; i += 1) {
             const requestObject = objects[i];
@@ -33,15 +36,15 @@ function calculate(el) {
             const calculatedSet = calculateSet(requestObject);
             if (calculatedSet) { arr.push([calculatedSet]); }
 
+            // additional effects
+            const calculatedEffects = calculateEffects(requestObject);
+            if (calculatedEffects) { arr.push([calculatedEffects]); }
+
             // add objects to objects set in player.js. Needed for reseting
             addObjects(objects[i].object);
         }
         // send array of functions to animate function
-        animate(
-            utils.undef(el.speed) ? 1 : el.speed,
-            el.delay || 0,
-            arr)
-        .then(() => { resolve(); });
+        animate(speed, delay, arr).then(() => { resolve(); });
     });
 }
 

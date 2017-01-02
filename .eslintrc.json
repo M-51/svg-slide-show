@@ -9,7 +9,8 @@
         "Slide": true,
         "step": true,
         "addSlides": true,
-        "next": true
+        "next": true,
+        "Text": true
     },
 
     "rules": {
