@@ -11,6 +11,7 @@
 		#earth {stroke: #000;}
 		#earth #axis {stroke-dasharray: 0; stroke-width: 0.5}
 		#sun__rays {stroke: #000;}
+		text {font-size: 18px;}
 	</style>
 </defs>
 <g id="earth">
@@ -28,7 +29,32 @@
 	<line id="sun__rays--last" x1="-400" y1="0" x2="-175" y2="0" marker-end="url(#marker-arrow)" stroke-dasharray="5" />
 </g>
 
-<text id="text" display="none" x="20" y="50"><tspan x="10">Panie Janie, tu jest tekst.</tspan><tspan x="10" dy="20">A tutaj jeszcze dłuższy tekst żeby zobaczyć jak to będzie wyglądało</tspan></text>
+<rect x="600" y="0" width="600" height="600" fill="#fff"/>
+
+<text id="text1">
+	<tspan x="10">Załóżmy, że to jest Ziemia</tspan>
+	<tspan x="10" dy="25">Przerywanymi liniami oznaczone są zwrotniki.</tspan>
+	<tspan x="10" dy="25">Natomiast poziomia, ciągła linia to równik</tspan>
+</text>
+
+<text id="text2" display="none">
+	<tspan x="10">Średnica Słońca jest ponad 100 razy większa niż Ziemi</tspan>
+</text>
+
+<text id="text3" display="none">
+	<tspan x="10">Dlatego promienie Słońca padają niemal równolegle na całą jej powierchnię</tspan>
+</text>
+
+<text id="text4" display="none">
+	<tspan x="10">W momencie przesilenia letniego, które wypada zwykle 21 czerwca,</tspan>
+	<tspan x="10" dy="25">następuje maksymalne wychylenie osi Ziemi, w kierunku Słońca</tspan>
+</text>
+
+<text id="text5" display="none">
+	<tspan x="10">Na wysokości zwrotnika Raka</tspan>
+	<tspan x="10" dy="25">promienie Słońca padają teraz pod kątem prostym na powierchnię Ziemi</tspan>
+</text>
+
 
 <script type="text/ecmascript" xlink:href="../../dist/js/script.js" />
 <script type="text/ecmascript" xlink:href="earthradius.js" />
