@@ -3,6 +3,8 @@ const earthCircle = new Obj(document.querySelector('#earth circle'));
 const sun = new Obj(document.getElementById('sun'), { translate: [-15000, 300], scale: 150 });
 const sunRays = new Obj(document.getElementById('sun__rays'), { translate: [100, 300] });
 const sunRaysLast = new Obj(document.getElementById('sun__rays--last'));
+const angleLine = new Obj(document.getElementById('angle-line'), { translate: [100, 0] });
+
 const text1 = new Obj(document.getElementById('text1'), { translate: [625, 100] });
 const text2 = new Obj(document.getElementById('text2'), { translate: [625, 200] });
 const text3 = new Obj(document.getElementById('text3'), { translate: [625, 250] });
@@ -121,7 +123,7 @@ slide3.play = () => {
                 }
             ]
         })
-    .then(() => next());
+    .then(() => next(500));
 };
 
 const slide4 = new Slide();
@@ -133,8 +135,13 @@ slide4.play = () => {
             objects: [
                 {
                     object: sunRaysLast,
-                    attributes: [{ name: 'x2', to: -168 }, { name: 'stroke-dasharray', to: 0 }],
-                    remove: { name: 'marker-end', when: 'start' }
+                    set: [{ name: 'x2', value: -168, when: 'end' }, { name: 'stroke-dasharray', value: 0, when: 'end' }, { name: 'stroke', value: '#f66', when: 'end' }],
+                    remove: { name: 'marker-end', when: 'end' }
+                },
+                {
+                    object: angleLine,
+                    transform: { translate: [100, 400] },
+                    attributes: { name: 'stroke-width', from: 0, to: 2 }
                 },
                 {
                     object: text5,
